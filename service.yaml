@@ -5,11 +5,12 @@ metadata:
 spec:
   selector:
     app: goserver
-  type: ClusterIP
+  type: NodePort
   ports:
   - name: goserver-service
     # Porta do service
     port: 80
     # Porta do Container
-    targetPort: 8000 
+    targetPort: 8000
     protocol: TCP
+    nodePort: 30001 #30000 - 32.767
