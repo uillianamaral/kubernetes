@@ -17,6 +17,14 @@ spec:
       containers:
         - name: goserver
           image: "uillianhenrique/hello-go:v5.5"
+          
+          resources:
+            requests:
+              cpu: "0.3"
+              memory: 20Mi
+            limits:
+              cpu: "0.3"
+              memory: 25Mi
 
           startupProbe:
             httpGet:
@@ -52,7 +60,7 @@ spec:
             - mountPath: "/go/myfamily"
               name: config
               readOnly: true
-          
+
       volumes:
         - name: config
           configMap:
@@ -60,4 +68,3 @@ spec:
             items:
             - key: members 
               path: "family.txt"
-        
